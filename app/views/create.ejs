@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <title>Ajouter une tâche</title>
+</head>
+
+<body>
+  <%- include('./components/header'); -%>
+
+    <main class="flex items-center justify-center h-screen">
+      <div class="w-full bg-grey-500">
+        <div class=" mx-auto py-8">
+          <div class="w-3/5 mx-auto bg-white rounded shadow">
+
+            <div class="text-center mx-16 py-4 px-8 text-black text-xl font-bold border-b border-grey-500">Ajouter une
+              tâche
+            </div>
+
+            <form action="/add" method="POST">
+              <div class="py-4 px-8">
+
+                <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2">Titre:</label>
+                  <input class=" border rounded w-full py-2 px-3 text-grey-darker" type="text" name="title" id="title"
+                    placeholder="Titre de la tâche">
+
+                </div>
+
+
+                <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2">Description</label>
+
+                  <textarea class=" border rounded w-full py-2 px-3 text-grey-darker" name="description"
+                    id="description" placeholder="Écrire une description...."></textarea>
+
+                </div>
+
+
+                <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2">Date début:</label>
+                  <input class=" border rounded w-full py-2 px-3 text-grey-darker" type="datetime-local"
+                    name="date_start" id="date_start">
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2">Date fin:</label>
+                  <input class=" border rounded w-full py-2 px-3 text-grey-darker" type="datetime-local" name="date_end"
+                    id="date_end">
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2">Status:</label>
+                  <select class=" border rounded w-full py-2 px-3 text-grey-darker" name="done" id="done">
+                    <option value="false">À faire</option>
+                    <option value="true">Terminer</option>
+                  </select>
+                </div>
+
+
+                <div class="mb-4">
+                  <button
+                    class="mb-2 w-full  rounded-full py-1 px-24 bg-gray-900 hover:bg-gray-700  text-white font-medium ">
+                    Ajouter
+                  </button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <%- include('./components/footer'); -%>
+</body>
+
+</html>

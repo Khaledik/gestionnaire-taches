@@ -1,6 +1,6 @@
 const express = require("express");
-
 const router = express.Router();
+
 const middlewareVerif = require("../middlewares/verifications");
 
 const taskController = require("../controllers/task");

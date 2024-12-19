@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <title>Accueil</title>
+</head>
+
+<body>
+  <%- include('./components/header'); -%>
+    <main class="p-8 h-screen">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-4xl font-medium ">
+          Tâche : <%= task.title %>
+        </h1>
+      </div>
+
+      <table class="border-collapse w-full rounded-md overflow-hidden">
+
+        <thead>
+          <tr>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+              Tâche</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+              Description</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+              Date début</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+              Date fin</th>
+            <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
+              Status
+            </th>
+
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr
+            class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+            <td
+              class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+              <%= task.title %>
+            </td>
+            <td
+              class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+              <%= task.description %>
+            </td>
+            <td
+              class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+              <%= task.date_start %>
+            </td>
+            <td
+              class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+              <%= task.date_end %>
+            </td>
+            <td
+              class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+              <% if (task.done===true) { %>
+                <span class="rounded bg-green-400 py-1 px-3 text-xs font-bold">Terminé</span>
+                <% } else { %>
+                  <span class="rounded bg-red-400 py-1 px-3 text-xs font-bold">À faire</span>
+                  <% } %>
+
+
+            </td>
+
+          </tr>
+
+
+        </tbody>
+
+      </table>
+    </main>
+    <%- include('./components/footer'); -%>
+</body>
+
+</html>
